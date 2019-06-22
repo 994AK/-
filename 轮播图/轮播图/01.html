@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        img {
+            width: 500px;
+            height: 250px;
+        }
+
+        .all {
+            width: 500px;
+            height: 250px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 250px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all .tab li {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+           
+        }
+
+        .tab li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+           
+        }
+
+
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all" id='box'>
+        <div class="screen">
+            <!--相框-->
+            <ul class="pic">
+                <li><img src="images/1.jpg"></li>
+                <li><img src="images/2.jpg"></li>
+                <li><img src="images/3.jpg"></li>
+                <li><img src="images/4.png"></li>
+                <li><img src="images/5.jpg"></li>
+                <li><img src="images/1.jpg"></li>
+            </ul>
+            <ul class="tab">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div id="arr">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        /* 
+           运动的 是UL：left 还有btn left 如果是第一到最后 最后到第一次改变opacity
+           找变量来记录 当前显示项
+
+           自动部分 num++
+
+           按钮部分 num更新为当前点击项 i
+
+           左按钮 num---0 num--
+
+           右按钮 num++ num===5 先从4~5 瞬间拉回真第一
+        
+         */
+
+        let oWrap = document.getElementById("screen"),
+            oPic =document.getElementsByClassName("pic")[0],
+            aBtn = document.querySelectorAll(".tab li+li"),
+            oPrev = document.getElementById("left"),
+            oNext = document.getElementById("right"),
+            num=0,
+            len=aBtn.length;//5
+
+
+
+       
+        
+    </script>
+
+</body>
+
+</html>

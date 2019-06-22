@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #box {
+            width: 410px;
+            height: 300px;
+            /* background: #000; */
+            border: 1px solid;
+            margin: 0 auto;
+        }
+
+        #dv {
+            position: relative;
+            float: left;
+            width: 410px;
+            height: 60px;
+            background: #ECEAEB;
+
+
+        }
+
+        .img2 {
+            width: 50px;
+            border-radius: 50%;
+            margin: 5px;
+
+
+        }
+      
+
+
+        #btn1 {
+            position: absolute;
+            padding: 5px;
+            right: 166px;
+            top: 19px;
+
+        }
+        .btn2{
+            display: none;
+            position: absolute;
+            width: 140px;
+            height: 25px;
+            top: 20px;
+        }
+
+        #a_1 {
+            position: absolute;
+            right: 0px;
+            background-color: #CDCCCD;
+            color: #F9F8F9;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            margin: 15px 30px 0 0;
+            font-size: 20px;
+            cursor: pointer;
+
+        }
+
+        .show {
+            width: 46px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- 父级 -->
+        <div id="dv">
+            <!-- 子级 -->
+            <img src="img/1.jpg" class="img2" id="img">
+            <span  class="btn2">
+            <input type="text" value="" id="txt" />
+            <input type="button" value="发表" id="btn1">
+            </span>
+            <a id="a_1">+ </a>
+        </div>
+        <br /> &nbsp;
+        <br /> &nbsp;
+        <hr />
+
+        <div class="i1">
+
+
+        </div>
+    </div>
+    <script>
+
+        let box = document.getElementById("box");
+        let ai1 = document.getElementsByClassName("i1")[0];
+        let txt = document.getElementById("txt");
+        let dv = document.getElementById("dv");
+        let a_1 = document.getElementById("a_1");
+        let img = document.getElementById("img");
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementsByClassName("btn2")[0];
+
+       a_1.onclick=function(){
+           btn2.style.display="block"
+       }
+
+
+        let ON = true;
+        img.onclick = function () {
+            if (!ON) {
+                this.src = `img/1.jpg`
+            } else {
+                this.src = `img/2.jpg`
+            }
+            ON = !ON;
+
+        }
+        let index = true;
+        btn1.onclick = function () {
+            console.log('1111')
+            console.log(ai1)
+            console.log(img.src)
+            console.log(txt.value)
+
+            ai1.innerHTML += `<div><img src="${img.src}"  class="show">${txt.value}</div>`
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

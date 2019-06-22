@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>
+    <table id="cartTable" class="cart">
+        <thead>
+            <!-- 商品 -->
+            <tr>
+
+                <th>商品</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 物品1 -->
+            <tr>
+                <td class="goods"><img src="img/1.jpg"></td>
+                <td class="price">8</td>
+                <td class="cuont">
+                    <button class="reduce">-</button>
+                    <input class="count-input" type="text" value="0" id="count1">
+                    <button class="add">+</button>
+                </td>
+                <td class="subtotal">0</td>
+            </tr>
+            <!-- 物品2 -->
+            <tr>
+                <td class="goods"><img src="img/2.jpg"></td>
+                <td class="price">10</td>
+                <td class="cuont">
+                    <button class="reduce">-</button>
+                    <input class="count-input" type="text" value="0" id="i" id="count1">
+                    <button class="add">+</button>
+                </td>
+                <td class="subtotal">0</td>
+            </tr>
+            <!-- 物品3 -->
+            <tr>
+                <td class="goods"><img src="img/3.jpg"></td>
+                <td class="price">12.5</td>
+                <td class="cuont">
+                    <button class="reduce">-</button>
+                    <input class="count-input" type="text" value="0" id="count1">
+                    <button class="add">+</button>
+                </td>
+                <td class="subtotal">0</td>
+            </tr>
+            <!-- 物品4 -->
+            <tr>
+                <td class="goods"><img src="img/4.jpg"></td>
+                <td class="price">23</td>
+                <td class="cuont">
+                    <button class="reduce">-</button>
+                    <input class="count-input" type="text" value="0" id="count1">
+                    <button class="add">+</button>
+                </td>
+                <td class="subtotal">0</td>
+            </tr>
+            <!-- 物品5 -->
+        </tbody>
+    </table>
+    <div class="foot" id="foot">
+        <div class="fr selected" id="selected">已选<em>0个</em></div>
+        <div class="fr total">已选<span id="priceTotal">0.00￥</span></div>
+    </div>
+   <script src="js/js.js"></script>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrap{
+            position: relative;
+            width: 658px;
+            height: 411px;
+            margin: auto;
+        }
+        img{
+           display: none;
+           position: absolute;
+            
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+   <img src="img/1.jpg" class="show">
+   <img src="img/2.jpg" class="">
+    </div>
+    <script>
+       let wrap=document.getElementById("wrap");//div id
+       let aImg=document.getElementsByTagName("img");//获取img的标签名 获取元素名
+       let index = true;//按钮 ！取反
+      //点击事件  点击切换
+       wrap.onclick =function(){
+           //判断 index => true 走真 就执行
+           if(index){
+            aImg[1].className="show";//更换类名<img src="img/2.jpg" class="show">
+            aImg[0].className="";//为空值  然后这个<img src="img/1.jpg" class=""> 执行切换第二张图片  点击切换
+            // index=!index;//取反 变成false 执行下面的else
+           }else{//false 走假
+            aImg[0].className="show";//执行到这里  <img src="img/1.jpg" class="show"> 切换到第一个张图片
+            aImg[1].className="";//然后为空了 <img src="img/2.jpg" class="">
+            // index=!index;//取反 变成true 执行下面的!index 变成true 循环
+           }
+           index=!index;// ！取反 false 执行到这里 就返回index是true 然后循环 嗯 对执行到这里 重新赋值true
+       }
+    
+    
+    </script>
+</body>
+</html>

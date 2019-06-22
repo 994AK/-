@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百钱买百鸡</title>
+</head>
+<body>
+   <p>怎样用一百块买一百只鸡，已知公鸡5块一只，母鸡3块一只，小鸡一块钱3只</p>
+   <script>
+    // //   for(let a=1;a<=100;a++){
+    // //     for(let b=1;b<=100;b++){
+    // //      for(let c=1;c<=100;c++){
+    // //           if((a+b+c==100)&&(a*5+b*3+c/3==100)){
+    // //             document.write('公鸡、母鸡、小鸡的数量分别是：'+a+','+b+','+c+'<br/>');
+    // //           }
+    // //      }
+    // //     }
+    // //   }
+
+    // for (var a = 1 ; a <= 20; a++){    //公鸡最多能买20只
+    //     for(var b = 1; b<=33; b++){    //母鸡最多只能买33只
+    //         var c = 100 - a - b;        //小鸡的数量可通过计算得出
+    //             if((a+b+c==100)&&(a*5+b*3+c/3==100)){
+    //             document.write('公鸡、母鸡、小鸡的数量分别是：'+a+','+b+','+c+'<br/>');           
+    //         }
+    //     }
+    // };
+   
+ /* 
+    公鸡 用 x代表
+    母鸡 用 y 代表
+    小鸡 用 z 代表
+ 
+  */
+  for(let x=1;x<100;x++){
+      for(let y =1;y<100;y++){
+          let z=100-x-y;
+          if((x+y+z===100)&&(5*x+3*y+z/3===100)){
+            document.write(`当前公鸡${x}只，母鸡${y},小鸡${z}`)
+          }
+      }
+  }
+
+   </script>
+</body>
+</html>

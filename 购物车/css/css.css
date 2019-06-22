@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #666;
+    text-decoration: none;
+}
+body{
+    /* 全局 */
+    padding: 50px;
+    color: #666;
+}
+.fr{
+    /* 合计 跟钱 浮动 右 */
+   float: right;
+}
+table{
+    /* 所有的table */
+    border-collapse: collapse;/* 为表格设置合并边框模型 */
+    border-spacing: 0;
+    border: 0;
+    text-align: center;
+    width: 937px;
+}
+th,td{
+    /* th 与 td */
+    border-bottom: 1px solid #cccccc;
+}
+th{
+    /* 上边框 背景颜色 */
+    background: #cccccc;
+    /* 上边框 的边框 */
+    border-top: 3px solid #ffffff;
+    height: 50px;
+}
+td{
+    padding: 10px;
+    color: red;
+}
+.goods{
+    /* td[0] */
+    width: 300px;
+}
+
+.price{
+    /* 单价 */
+    width: 130px;
+}
+button{
+    /* 按钮 */
+    width:40px;
+    height:40px;
+    font-size: 20px;
+}
+.count-input{
+    /*  文本域 */
+    width: 60px;
+    height: 40px;
+    margin: 10px;
+    padding-top:5px;
+    text-align: center
+    
+}
+.subtotal {
+    /* 小计 */
+    width: 150px;
+    color: red;
+    font-size: 20px
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.foot{
+    width: 935px;
+    border: 1px solid #ffffff;
+    color: #666;
+}
+.foot.selected{
+    cursor: pointer;
+}
+.foot .subtotal .arrow{
+    position: relative;
+    top: -3;
+    margin-left: 3px;
+}

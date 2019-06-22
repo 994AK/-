@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       #list{
+           margin: 40px;
+       }
+      a{
+          text-decoration: none;
+       }
+       #list li {
+           overflow: hidden;
+           height: 40px;
+           transition: 1s;
+       }
+       #list li p.tit{
+           width: 300px;
+           height: 40px;
+           background: #000;
+           line-height: 40px;
+           color: #fff;
+       }
+       #list li p{
+           width: 300px;
+           height: 30px;
+           background-color: #ff0;
+           border-bottom: 1px solid;
+           color: #000;
+       }
+       #list .show{
+           height: 134px;
+       }
+       
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>
+            <p class="tit">0点击标题</p>
+            <p>杨光</p>
+            <p>杨光</p>
+            <p>杨光</p>
+        </li>
+        <li>
+                <p class="tit">1点击标题</p>
+                <p>杨光</p>
+                <p>杨光</p>
+                <p>杨光</p>
+            </li>
+            <li>
+                    <p class="tit">2点击标题</p>
+                    <p>杨光</p>
+                    <p>杨光</p>
+                    <p>杨光</p>
+                </li>
+    </ul>
+   <script>
+         
+         let ali = document.querySelectorAll("#list li")//获取ul里面的li
+         let aTit = document.getElementsByClassName("tit")//获取 p标签
+         let len = ali.length;//ali的遍历
+         //创建for循环
+         for(let i=0;i<=len-1;i++){
+            aTit[i].bool = true;//关闭状态 可以被点击打开 给每个对象  状态
+            //点击事件
+            aTit[i].onclick =function(){
+                 if(aTit[i].bool){//true打开 f是关闭
+                    ali[i].className ="show";//改变类名
+                 }else{//f进入
+                    ali[i].className="";//清空类名
+                    
+                 }
+                 aTit[i].bool=!aTit[i].bool;//取反
+
+                 for(let j=0;j<=len-1;j++){// 0 1 2 3 falce
+                     if(j!==i&&aTit[j].bool===false){//目的是清空  已经被点击的开的li 
+                       //并不是清空我当前的点击事件
+                          ali[j].className="";//清空
+                          aTit[j]. bool= true;//回正 不然不循环；
+
+                     }
+                 }
+            }//点击事件END
+         }
+   </script>
+</body>
+</html>

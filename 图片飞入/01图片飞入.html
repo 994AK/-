@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid;
+        }
+
+        #box p {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url(3.jpg) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <script src="animation.js"></script>
+    <script>
+
+        /*  00-100
+          00 01 02 03 04 05 06 07 08 09
+          10 11 12 13 14 15 16 17 18 19
+          .....
+          0 -5w (-1w-5w)
+          50 51 52 53 54 55 56 57 58 59
+          .....
+          (0 9*50) (9*50 9*50)
+          90 91 92 93 94 95 96 97 98 99
+        
+        
+        
+        */
+        /* 
+           1.获取元素
+
+           2.把0~100放到数组里面
+
+           3.打乱数组 数组项 => 来获取随机top值和left值（用来做背景位置 和定位位置）
+           [97, 56, 52, 11, 93, 28, 69, 84, 76, 44, 62, 80, 68, 10, 88, 35, 23, 90, 
+            0, 78, 87, 99, 8, 7, 96, 91, 94, 95, 45, 72, 53, 34, 55, 40, 66, 67, 77,
+            27, 79, 24, 46, 58, 29, 26, 98, 60, 73, 38, 63, 13, 92, 41, 16, 83, 25, 
+            86, 42, 48, 37, 65, 1, 31, 21, 20, 32, 2, 6, 4, 82, 15, 50, 57, 70, 61, 
+            39, 47, 14, 74, 9, 3, 22, 30, 89, 64, 5, 19, 12, 51, 71, 54, 75, 49, 17,
+            18, 36, 85, 43, 59, 33, 81]
+        
+           j=0
+
+           创建第一个p标签 p[0] 下标1的时候创建第二个p标签 p[1] 
+
+           (value = 97  value%10=>8)
+           p[0]
+        */
+ 
+        /* 获取元素 */
+        let box = document.getElementById("box"),
+            p = document.getElementsByTagName("p"),//动态
+            arr = []
+
+        /* .把0~100放到数组里面 */
+        len = 100;
+        for (let i = 0; i < len; i++) {
+            arr.push(i)
+        }
+        /* 打乱数组 数组项 => 来获取随机top值和left值（用来做背景位置 和定位位置） */
+        arr.sort((a, b) => Math.random() - 0.5) //正负随机数
+
+        let j = 0
+        function fly() {
+            
+            let value = arr[j]
+            if(j>=len) return
+            let left = (value % 10) * 50
+            let top = Math.floor(value / 10) * 50
+           /* 创建第一个p标签 p[0] 1创建第二个p标签 p[1] */
+            box.innerHTML += `<p></p>`
+            p[j].style= `left:${left}px;top:${top}px;background-Position:${-left}px ${-top}px` //定位背景图片
+
+            animation(p[j], {
+                data: {
+                    top,
+                    left
+                },
+                speedOpt: {
+                    pattern: "Quad",//存运动模式
+                    speed: 2//存运动方式
+                }
+            },1000/60,()=>{
+                j++
+                fly()
+            })
+        }
+        fly()
+        console.log(arr);
+        
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      span{
+          width: 50px;
+          height: 20px;
+          padding: 10px;
+          border: 1px solid;
+          display: inline-block;
+         margin: 5px;
+      }
+
+        
+
+    </style>
+    
+</head>
+<body>
+
+    <div id="dv"> </div>
+    <div id="dv1"></div>
+   <script>
+      let str = "";
+      for(let i=1;i<=9;i++){
+          for(let j=1;j<=i;j++){
+              str += `<span>${i}*${j}=${i*j}</span>`
+          }
+          str +=`<br>`
+      }
+   // console.log(str);
+    
+      dv.innerHTML=str;
+
+      /* i=1
+         k<=i;str=> <span>1*1=1</span> <br>
+
+         9*9
+
+         i=2
+         j<=i;k<=2
+         k=1 str=> <span>1*1=1</span> <br>
+         k=2 str=> <span>1*2=2</span> <br>
+         然后就以此类推
+       
+    */
+    let str1 = "";
+      for(let i=1;i<=9;i++){
+          for(let j=i;j<=9;j++){
+              str1 += `<span>${i}*${j}=${i*j}</span>`
+          }
+          str1 +=`<br>`
+      }
+     dv1.innerHTML=str1;
+   </script>
+</body>
+</html>

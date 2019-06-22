@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>js时钟效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clock {
+            position: relative;
+            width: 650px;
+            height: 650px;
+
+        }
+
+        #wrap {
+            position: absolute;
+            width: 550px;
+            height: 570px;
+            background-image: url(img/1.png);
+            transform: rotate(1.5deg)
+        }
+
+        .arrow {
+            position: absolute;
+            left: 300px;
+            top: 45px;
+            height: 260px;
+            border: 1px solid black;
+            transform-origin: bottom;
+        }
+
+        #minute {
+            border: 1px solid red;
+        }
+
+        #second {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div id="wrap">
+        </div>
+        <div id="hour" class="arrow"></div>
+        <div id="minute" class="arrow"></div>
+        <div id="second" class="arrow"></div>
+    </div>
+</body>
+<script>
+    var hour = document.getElementById("hour")
+    var minute = document.getElementById("minute")
+    var second = document.getElementById("second")
+
+    function timer() {
+        var date = new Date()
+
+        var hh = date.getHours()
+
+        var mm = date.getMinutes()//返回当前的分钟
+
+        var ss = date.getSeconds()//返回当前的秒数
+        hour.style.transform = `rotate(${hh*30}deg)`
+        minute.style.transform = `rotate(${mm * 6}deg)`
+        second.style.transform = `rotate(${ss * 6}deg)`
+
+    }
+    var time = setInterval(timer, 1000)
+</script>
+
+</html>

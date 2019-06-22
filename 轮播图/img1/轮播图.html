@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Microsoft yahei, serif;
+        }
+
+        #banner {
+            overflow: hidden;
+            position: relative;
+            width: 600px;
+            height: 375px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #banner ul li {
+            display: none;
+            position: absolute;
+            list-style: none;
+        }
+
+        #banner ul li img {
+            width: 600px;
+
+        }
+
+        #banner p {
+            position: absolute;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            line-height: 25px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #banner p.top {
+            top: 0;
+        }
+
+        #banner p.bottom {
+            bottom: 0;
+        }
+
+        #banner div {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            margin-top: -15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #banner div.prev {
+            left: 0;
+
+        }
+
+        #banner div.next {
+            right: 0;
+
+        }
+
+        .btnBar {
+            position: relative;
+            width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .btnBar button {
+            padding: 10px;
+            background-color: #ccc;
+            border: 1px solid grey;
+            border-radius: 10px;
+            outline: none;
+            box-shadow: 0 0 20px #ccc inset;
+        }
+
+        .btnBar button.active {
+            background-color: red;
+            color: #fff;
+        }
+
+        #banner .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="banner">
+
+            <ul>
+                <li class="show">
+                    <img src="1.jpg" alt="">
+                </li>
+                <li>
+                    <img src="2.jpg" alt="">
+                </li>
+                <li>
+                    <img src="3.jpg" alt="">
+                </li>
+                <li>
+                    <img src="4.jpg" alt="">
+                </li>
+                <li>
+                    <img src="5.jpg" alt="">
+                </li>
+            </ul>
+            <p class='top'>1/5</p>
+            <p class='bottom'>人</p>
+            <div class='prev'>&lt;</div>
+            <div class='next'>&gt;</div>
+
+        </div>
+        <div class="btnBar">
+            <button class='active'>正常模式</button>
+            <button>循环模式</button>
+        </div>
+    </div>
+    <script>
+        /* 变量声明区 */
+        let aBtn = document.querySelectorAll(".btnBar button");//获取按钮
+        let aLi = document.querySelectorAll("#banner li");//获取li
+        let oTop = document.getElementsByClassName("top")[0];//获取 1/5
+        let oBot = document.getElementsByClassName("bottom")[0];//获取下面 名字图片
+        let oPrev = document.getElementsByClassName("prev")[0];
+        let oNext = document.getElementsByClassName("next")[0];
+        let num = 0;//默认是第一张开始
+        let onOff = true;// 代表正常模式
+        let oldLi = aLi[num]//第一张开始 - 0 - 标记的是 即将要取消类名的旧li
+        let arr = ["人", "图", "月亮", "秋天", "树木"]
+        /*  变量声明区END */
+        /* 操作区 VIP入坐 */
+
+        /* 正常模式 */
+        aBtn[0].onclick = function () {
+            aBtn[0].classList.add("active")//点击 替换类名
+            aBtn[1].classList.remove("active")//移除类名
+            onOff = true;//更换模式启动
+        }
+
+        /*  循环模式 */
+        aBtn[1].onclick = function () {
+            aBtn[1].classList.add("active")//点击 替换类名
+            aBtn[0].classList.remove("active")//移除类名
+            onOff = false;
+        }
+        /* 存放重复的代码 用函数调用 */
+        function ren() {
+            oldLi.classList.remove("show")//取消第一张num
+            oldLi = aLi[num];//把oldli 更新当前的li
+            aLi[num].classList.add("show");
+            oTop.innerHTML = `${num + 1}/5`
+            oBot.innerHTML = arr[num]//从第一张开始
+        }
+        /* 点击右按钮 ++哦~ */
+        oNext.onclick = function () {
+            num++// num = 1  这里+1； 默认的是0 
+            if (num > 4) {//到序号4(最后一张)再往下点 0 1 2 3 4
+                onOff ? num = 4 : num = 0;
+            }
+            ren();
+        }
+
+        /* 点击左边回去 --哦 */
+        oPrev.onclick = function () {
+            num--;// num = 1  这里+1； 默认的是0 
+            if (num < 0) {//到序号4(最后一张)
+                onOff ? num = 0 : num = 4;
+            }
+            ren();
+        }
+
+    </script>
+</body>
+
+</html>

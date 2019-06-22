@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        #wrap ul li {
+
+            text-align: center;
+
+            margin: 1px;
+            background: url(1.png)
+        }
+
+        #wrap p.on {
+            background-image: url(1.png)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul>
+            <li> 选择 美丽的楚楚 </li>
+            <li> 选择 有趣的瓜瓜 </li>
+            <li> 选择 漂亮的胆囊 </li>
+            <li> 选择 老实的小浪 </li>
+            <li> 选择 一个单身 </li>
+        </ul>
+        <p class="all">
+            全选
+        </p>
+        <p class="allno">
+            全选
+        </p>
+        <p class="reverse">
+            全选
+        </p>
+
+    </div>
+    <script>
+        let aLi = document.querySelectorAll("#wrap li ");
+        let all = document.getElementsByClassName("all ")[0];
+        let allno = document.getElementsByClassName("allon ")[0];
+        let reverse = document.getElementsByClassName("reverse ")[0];
+        let num = 0;//标记当前 已被选中的 li个数
+        let len = aLi.length;
+
+        for (let i = 0; i < len; i++) {
+            aLi[i].oOff = true;
+
+            aLi[i].onclick = function () {
+                this.classList.toggle("on")
+
+                this.onOff ? num++ : num--//判断当前开关状态是true 还是false
+
+                this.onOff = !this.onOff;//每次点击 改变开关状态
+
+                console.log(num);
+            }
+        }
+
+        all.onclick = function () {
+            all.classList.add("on");
+            allon.classList.reverse("on");
+            reverse.classList.remove("on");
+            num = 6
+            for (let i = 0; i < len; i++) {
+                aLi[i].classList.add("on");
+                aLi[i].onOff = false;
+            }
+
+        }
+        allno.onclick = function () {
+            all.classList.remove("on");
+            allon.classList.add("on");
+            reverse.classList.remove("on");
+            num = 0
+            for (let i = 0; i < len; i++) {
+                aLi[i].classList.add("on");
+                aLi[i].onOff = true;
+            }
+        }
+        reverse.onclick = function () {
+            aLi[i].classList.toggle("on")
+            aLi[i].onOff ? num++ : num--
+            aLi[i].onOff = !aLi[i].onOff
+            judeg();
+        }
+        function judeg() {
+            if (num === 6) {
+                all.classList.add("on");
+                allno.classList.remove("on");
+            } else if (num === 0) {
+                all.classList.remove("on");
+
+                allno.classList.add("on");
+            } else {
+                all.classList.remove("om");
+                allon.classList.remove("on");
+            }
+        }
+    </script>
+</body>
+
+</html>
